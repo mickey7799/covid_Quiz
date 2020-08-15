@@ -45,16 +45,10 @@ form.addEventListener('submit', e => {
 
   if (score === 100) {
     setTimeout(() => {
-      result
-        .querySelector('.container')
-        .querySelector('div')
-        .classList.remove('d-none');
-    }, 1000);
+      result.querySelector('div:nth-child(1)').classList.remove('d-none');
+    }, 2000);
   } else {
-    result
-      .querySelector('.container')
-      .querySelector('div')
-      .classList.add('d-none');
+    result.querySelector('div:nth-child(1)').classList.add('d-none');
 
     // try again
     setTimeout(() => {
