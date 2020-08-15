@@ -1,11 +1,14 @@
 const correctAnswers = ['A', 'A', 'B', 'B', 'A'];
+
 const form = document.querySelector('.quiz-form');
+
 const result = document.querySelector('.result');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
 
   let score = 0;
+
   const userAnswers = [
     form.q1.value,
     form.q2.value,
@@ -13,6 +16,7 @@ form.addEventListener('submit', e => {
     form.q4.value,
     form.q5.value
   ];
+
   userAnswers.forEach((answer, index) => {
     if (answer === correctAnswers[index]) {
       score += 20;
@@ -24,7 +28,9 @@ form.addEventListener('submit', e => {
 
   result.classList.remove('d-none');
 
+  // add animation
   let output = 0;
+
   const timer = setInterval(() => {
     result.querySelector('span').textContent = `${output}%`;
 
@@ -34,4 +40,30 @@ form.addEventListener('submit', e => {
       output++;
     }
   }, 10);
+
+  // if the score is 100
+
+  if (score === 100) {
+    setTimeout(() => {
+      result
+        .querySelector('.container')
+        .querySelector('div')
+        .classList.remove('d-none');
+    }, 1000);
+  } else {
+    result
+      .querySelector('.container')
+      .querySelector('div')
+      .classList.add('d-none');
+
+    // try again
+    setTimeout(() => {
+      result.querySelector('button').classList.remove('d-none');
+    }, 1000);
+    result.querySelector('button').addEventListener('click', () => {
+      result.classList.add('d-none');
+      location.reload();
+      scrollTo(0, 200);
+    });
+  }
 });

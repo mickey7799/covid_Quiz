@@ -12,24 +12,32 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- top section -->
     <div class="intro py-3 bg-white text-center">
       <div class="container">
         <h2 class="text-primary display-3 my-4">Covid-19 Quiz</h2>
       </div>
     </div>
-
-    <!-- result section -->
     <div class="result py-4 d-none bg-light text-center">
       <div class="container lead">
-        <p>
+        <p class="my-4">
           You are <span class="text-primary display-4 p-3">0%</span> COVID-19
           Expert
         </p>
+        <div
+          class="d-none vh-100 text-white display-4 font-weight-bold"
+          style="background-image: url('https://picsum.photos/1100/500');background-size: cover"
+        >
+          Amazing!!! You Nailed It
+        </div>
+
+        <button
+          type="button"
+          class="again btn d-none btn-info btn-lg my-4 w-25"
+        >
+          Try Again
+        </button>
       </div>
     </div>
-
-    <!-- quiz section -->
     <div class="quiz py-4 bg-primary">
       <div class="container">
         <h2 class="my-5 text-white">On with the questions...</h2>
@@ -121,7 +129,6 @@
         </form>
       </div>
     </div>
-
     <script src="app.js"></script>
   </body>
 </html>
